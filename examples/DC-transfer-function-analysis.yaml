@@ -1,0 +1,49 @@
+axioms:
+  series_resistance:
+    equation: "Rtotal = R1 + R2"
+  divider_output:
+    equation: "Vout = V1 * R2 / Rtotal"
+  transfer_function:
+    equation: "TF = Vout / V1"
+  input_impedance:
+    equation: "Rin = Rtotal"
+  output_impedance:
+    equation: "Rout = (R1 * R2) / Rtotal"
+divider_output_expanded:
+  equation: |+
+    Vout = V1 * R2 / Rtotal ; Rtotal = R1 + R2 -> Vout = V1 * R2 / (R1 + R2)
+transfer_function_expanded:
+  equation: |+
+    TF = Vout / V1 ; Vout = V1 * R2 / (R1 + R2) -> TF = R2 / (R1 + R2)
+output_impedance_expanded:
+  equation: |+
+    Rout = (R1 * R2) / Rtotal ; Rtotal = R1 + R2 -> Rout = (R1 * R2) / (R1 + R2)
+calculations:
+  eval_divider_output_voltage:
+    vars: ["R1", "R2", "V1"]
+    values: [1000.0, 1000.0, 12.0]
+    equation: "V1 * R2 / (R1 + R2)"
+    tolerance: 0.001
+    expected_value: 6.0
+    expected_symbol: "Vout"
+  eval_transfer_function:
+    vars: ["R1", "R2"]
+    values: [1000.0, 1000.0]
+    equation: "R2 / (R1 + R2)"
+    tolerance: 0.001
+    expected_value: 0.5
+    expected_symbol: "TF"
+  eval_input_impedance:
+    vars: ["R1", "R2"]
+    values: [1000.0, 1000.0]
+    equation: "R1 + R2"
+    tolerance: 0.001
+    expected_value: 2000.0
+    expected_symbol: "Rtotal"
+  eval_output_impedance:
+    vars: ["R1", "R2"]
+    values: [1000.0, 1000.0]
+    equation: "(R1 * R2) / (R1 + R2)"
+    tolerance: 0.001
+    expected_value: 500.0
+    expected_symbol: "Rout"

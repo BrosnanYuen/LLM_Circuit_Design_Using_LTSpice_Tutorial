@@ -1,0 +1,36 @@
+axioms:
+  sweep_point_count:
+    equation: "N = floor((Vmax - Vmin) / step) + 1"
+  diode_current_first_order:
+    equation: "I = (V1 - Vd) / R1"
+  diode_drop_approximation:
+    equation: "Vd = 0.7"
+calculations:
+  eval_sweep_point_count:
+    vars: ["Vmax", "Vmin", "step"]
+    values: [10.0, -10.0, 3.0]
+    equation: "floor((Vmax - Vmin) / step) + 1"
+    tolerance: 0.001
+    expected_value: 7.0
+    expected_symbol: "N"
+  eval_current_at_2v:
+    vars: ["V1", "Vd", "R1"]
+    values: [2.0, 0.7, 1000.0]
+    equation: "(V1 - Vd) / R1"
+    tolerance: 0.001
+    expected_value: 0.0013
+    expected_symbol: "I"
+  eval_current_at_5v:
+    vars: ["V1", "Vd", "R1"]
+    values: [5.0, 0.7, 1000.0]
+    equation: "(V1 - Vd) / R1"
+    tolerance: 0.001
+    expected_value: 0.0043
+    expected_symbol: "I"
+  eval_current_at_8v:
+    vars: ["V1", "Vd", "R1"]
+    values: [8.0, 0.7, 1000.0]
+    equation: "(V1 - Vd) / R1"
+    tolerance: 0.001
+    expected_value: 0.0073
+    expected_symbol: "I"

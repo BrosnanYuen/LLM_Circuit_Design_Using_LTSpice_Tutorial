@@ -1,0 +1,51 @@
+axioms:
+  parallel_resistance:
+    equation: "Rpar = (R2 * R3) / (R2 + R3)"
+  node_voltage:
+    equation: "Vout = V1 * Rpar / (R1 + Rpar)"
+node_voltage_expanded:
+  equation: |+
+    Vout = V1 * Rpar / (R1 + Rpar) ; Rpar = (R2 * R3) / (R2 + R3) -> Vout = V1 * ((R2 * R3) / (R2 + R3)) / (R1 + ((R2 * R3) / (R2 + R3)))
+calculations:
+  eval_parallel_5000:
+    vars: ["R2", "R3"]
+    values: [50.0, 5000.0]
+    equation: "(R2 * R3) / (R2 + R3)"
+    tolerance: 0.001
+    expected_value: 49.5049504950495
+    expected_symbol: "Rpar"
+  eval_parallel_7500:
+    vars: ["R2", "R3"]
+    values: [50.0, 7500.0]
+    equation: "(R2 * R3) / (R2 + R3)"
+    tolerance: 0.001
+    expected_value: 49.66887417218543
+    expected_symbol: "Rpar"
+  eval_parallel_10000:
+    vars: ["R2", "R3"]
+    values: [50.0, 10000.0]
+    equation: "(R2 * R3) / (R2 + R3)"
+    tolerance: 0.001
+    expected_value: 49.75124378109453
+    expected_symbol: "Rpar"
+  eval_vout_5000:
+    vars: ["R1", "R2", "R3", "V1"]
+    values: [50.0, 50.0, 5000.0, 10.0]
+    equation: "V1 * ((R2 * R3) / (R2 + R3)) / (R1 + ((R2 * R3) / (R2 + R3)))"
+    tolerance: 0.001
+    expected_value: 4.975124378109453
+    expected_symbol: "Vout"
+  eval_vout_7500:
+    vars: ["R1", "R2", "R3", "V1"]
+    values: [50.0, 50.0, 7500.0, 10.0]
+    equation: "V1 * ((R2 * R3) / (R2 + R3)) / (R1 + ((R2 * R3) / (R2 + R3)))"
+    tolerance: 0.001
+    expected_value: 4.983388704318937
+    expected_symbol: "Vout"
+  eval_vout_10000:
+    vars: ["R1", "R2", "R3", "V1"]
+    values: [50.0, 50.0, 10000.0, 10.0]
+    equation: "V1 * ((R2 * R3) / (R2 + R3)) / (R1 + ((R2 * R3) / (R2 + R3)))"
+    tolerance: 0.001
+    expected_value: 4.987562189054726
+    expected_symbol: "Vout"

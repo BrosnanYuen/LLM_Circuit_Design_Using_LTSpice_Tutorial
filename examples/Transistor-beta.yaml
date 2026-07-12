@@ -1,0 +1,54 @@
+axioms:
+  sweep_point_count:
+    equation: "N = (Ib_max - Ib_min) / step + 1"
+  collector_limit:
+    equation: "Imax = Vcc / R1"
+  active_region_current:
+    equation: "Ic = beta * Ib"
+  current_gain_ratio:
+    equation: "beta = Ic / Ib"
+  collector_drop:
+    equation: "VR1 = Ic * R1"
+calculations:
+  eval_sweep_points:
+    vars: ["Ib_max", "Ib_min", "step"]
+    values: [0.200, 0.001, 0.001]
+    equation: "(Ib_max - Ib_min) / step + 1"
+    tolerance: 0.001
+    expected_value: 200.0
+    expected_symbol: "N"
+  eval_collector_limit:
+    vars: ["Vcc", "R1"]
+    values: [5.0, 1.0]
+    equation: "Vcc / R1"
+    tolerance: 0.001
+    expected_value: 5.0
+    expected_symbol: "Imax"
+  eval_ic_at_1mA:
+    vars: ["beta", "Ib"]
+    values: [100.0, 0.001]
+    equation: "beta * Ib"
+    tolerance: 0.001
+    expected_value: 0.1
+    expected_symbol: "Ic"
+  eval_vr1_at_1mA:
+    vars: ["Ic", "R1"]
+    values: [0.1, 1.0]
+    equation: "Ic * R1"
+    tolerance: 0.001
+    expected_value: 0.1
+    expected_symbol: "VR1"
+  eval_ic_at_10mA:
+    vars: ["beta", "Ib"]
+    values: [100.0, 0.01]
+    equation: "beta * Ib"
+    tolerance: 0.001
+    expected_value: 1.0
+    expected_symbol: "Ic"
+  eval_vr1_at_10mA:
+    vars: ["Ic", "R1"]
+    values: [1.0, 1.0]
+    equation: "Ic * R1"
+    tolerance: 0.001
+    expected_value: 1.0
+    expected_symbol: "VR1"

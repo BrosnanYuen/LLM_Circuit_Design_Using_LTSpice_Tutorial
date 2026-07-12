@@ -1,0 +1,52 @@
+axioms:
+  assumed_base_emitter_drop:
+    equation: "VBE = 0.7"
+  base_voltage_relation:
+    equation: "VB = VE - VBE"
+  base_current_relation:
+    equation: "Ib = VB / Rbase"
+  collector_current_relation:
+    equation: "Ic = beta * Ib"
+  collector_load_drop:
+    equation: "VR1 = Ic * Rload"
+  emitter_current_relation:
+    equation: "Ie = Ib + Ic"
+base_voltage_from_drop:
+  equation: |+
+    VB = VE - VBE ; VBE = 0.7 -> VB = VE - 0.7
+calculations:
+  eval_base_voltage:
+    vars: ["VE", "VBE"]
+    values: [12.0, 0.7]
+    equation: "VE - VBE"
+    tolerance: 0.001
+    expected_value: 11.3
+    expected_symbol: "VB"
+  eval_base_current:
+    vars: ["VB", "Rbase"]
+    values: [11.3, 11200.0]
+    equation: "VB / Rbase"
+    tolerance: 0.001
+    expected_value: 0.0010089285714285714
+    expected_symbol: "Ib"
+  eval_collector_current:
+    vars: ["beta", "Ib"]
+    values: [100.0, 0.0010089285714285714]
+    equation: "beta * Ib"
+    tolerance: 0.001
+    expected_value: 0.10089285714285714
+    expected_symbol: "Ic"
+  eval_collector_drop:
+    vars: ["Ic", "Rload"]
+    values: [0.10089285714285714, 1.0]
+    equation: "Ic * Rload"
+    tolerance: 0.001
+    expected_value: 0.10089285714285714
+    expected_symbol: "VR1"
+  eval_emitter_current:
+    vars: ["Ib", "Ic"]
+    values: [0.0010089285714285714, 0.10089285714285714]
+    equation: "Ib + Ic"
+    tolerance: 0.001
+    expected_value: 0.10190178571428571
+    expected_symbol: "Ie"
