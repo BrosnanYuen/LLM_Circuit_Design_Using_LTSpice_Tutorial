@@ -1,0 +1,56 @@
+axioms:
+  natural_frequency:
+    equation: "omega0 = 1 / sqrt(l * c)"
+  resonant_frequency:
+    equation: "f0 = omega0 / (2 * pi)"
+  damping_ratio:
+    equation: "zeta = alpha / omega0"
+  alpha_definition:
+    equation: "alpha = r / (2 * l)"
+  percent_overshoot:
+    equation: "overshoot = exp(-pi * zeta / sqrt(1 - zeta^2))"
+  peak_voltage:
+    equation: "v_peak = v_step * (1 + overshoot)"
+calculations:
+  eval_omega0:
+    vars: ["l", "c"]
+    values: [0.03, 0.0001]
+    equation: "1 / sqrt(l * c)"
+    tolerance: 0.001
+    expected_value: 577.3502691896257
+    expected_symbol: "omega0"
+  eval_f0:
+    vars: ["omega0"]
+    values: [577.3502691896257]
+    equation: "omega0 / (2 * pi)"
+    tolerance: 0.001
+    expected_value: 91.88814923696533
+    expected_symbol: "f0"
+  eval_alpha:
+    vars: ["r", "l"]
+    values: [10.0, 0.03]
+    equation: "r / (2 * l)"
+    tolerance: 0.001
+    expected_value: 166.66666666666669
+    expected_symbol: "alpha"
+  eval_zeta:
+    vars: ["alpha", "omega0"]
+    values: [166.66666666666669, 577.3502691896257]
+    equation: "alpha / omega0"
+    tolerance: 0.001
+    expected_value: 0.288675134594813
+    expected_symbol: "zeta"
+  eval_overshoot:
+    vars: ["zeta"]
+    values: [0.288675134594813]
+    equation: "exp(-pi * zeta / sqrt(1 - zeta^2))"
+    tolerance: 0.001
+    expected_value: 0.38781540026031536
+    expected_symbol: "overshoot"
+  eval_peak_voltage:
+    vars: ["v_step", "overshoot"]
+    values: [10.0, 0.38781540026031536]
+    equation: "v_step * (1 + overshoot)"
+    tolerance: 0.001
+    expected_value: 13.878154002603154
+    expected_symbol: "v_peak"

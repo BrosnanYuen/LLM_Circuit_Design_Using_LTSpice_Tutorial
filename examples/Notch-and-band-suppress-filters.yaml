@@ -1,0 +1,47 @@
+axioms:
+  resonant_frequency_lc:
+    equation: "f0 = 1 / (2 * pi * sqrt(l * c))"
+  inductive_reactance:
+    equation: "x_l = 2 * pi * f * l"
+  capacitive_reactance:
+    equation: "x_c = 1 / (2 * pi * f * c)"
+  critical_series_resistance:
+    equation: "rcrit_series = 2 * sqrt(l / c)"
+  critical_parallel_resistance:
+    equation: "rcrit_parallel = 0.5 * sqrt(l / c)"
+calculations:
+  eval_resonant_frequency:
+    vars: ["l", "c"]
+    values: [0.000331, 0.0000000077]
+    equation: "1 / (2 * pi * sqrt(l * c))"
+    tolerance: 0.001
+    expected_value: 99670.06309906582
+    expected_symbol: "f0"
+  eval_inductive_reactance_at_resonance:
+    vars: ["f", "l"]
+    values: [99670.06309906582, 0.000331]
+    equation: "2 * pi * f * l"
+    tolerance: 0.001
+    expected_value: 207.4048923127101
+    expected_symbol: "x_l"
+  eval_capacitive_reactance_at_resonance:
+    vars: ["f", "c"]
+    values: [99670.06309906582, 0.0000000077]
+    equation: "1 / (2 * pi * f * c)"
+    tolerance: 0.001
+    expected_value: 207.4048923127101
+    expected_symbol: "x_c"
+  eval_critical_series_resistance:
+    vars: ["l", "c"]
+    values: [0.000331, 0.0000000077]
+    equation: "2 * sqrt(l / c)"
+    tolerance: 0.001
+    expected_value: 414.8097846254202
+    expected_symbol: "rcrit_series"
+  eval_critical_parallel_resistance:
+    vars: ["l", "c"]
+    values: [0.000331, 0.0000000077]
+    equation: "0.5 * sqrt(l / c)"
+    tolerance: 0.001
+    expected_value: 103.70244615635505
+    expected_symbol: "rcrit_parallel"

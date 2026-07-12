@@ -1,0 +1,70 @@
+axioms:
+  natural_frequency:
+    equation: "omega0 = 1 / sqrt(l * c)"
+  resonant_frequency:
+    equation: "f0 = omega0 / (2 * pi)"
+  critical_series_resistance:
+    equation: "r_series_crit = 2 * sqrt(l / c)"
+  critical_parallel_resistance:
+    equation: "r_parallel_crit = 0.5 * sqrt(l / c)"
+  series_damping_ratio:
+    equation: "zeta_series = (r / 2) * sqrt(c / l)"
+  parallel_damping_ratio:
+    equation: "zeta_parallel = sqrt(l / c) / (2 * r)"
+calculations:
+  eval_omega0:
+    vars: ["l", "c"]
+    values: [0.03, 0.0001]
+    equation: "1 / sqrt(l * c)"
+    tolerance: 0.001
+    expected_value: 577.3502691896257
+    expected_symbol: "omega0"
+  eval_f0:
+    vars: ["omega0"]
+    values: [577.3502691896257]
+    equation: "omega0 / (2 * pi)"
+    tolerance: 0.001
+    expected_value: 91.88814923696533
+    expected_symbol: "f0"
+  eval_critical_series_resistance:
+    vars: ["l", "c"]
+    values: [0.03, 0.0001]
+    equation: "2 * sqrt(l / c)"
+    tolerance: 0.001
+    expected_value: 34.64101615137755
+    expected_symbol: "r_series_crit"
+  eval_critical_parallel_resistance:
+    vars: ["l", "c"]
+    values: [0.03, 0.0001]
+    equation: "0.5 * sqrt(l / c)"
+    tolerance: 0.001
+    expected_value: 8.660254037844387
+    expected_symbol: "r_parallel_crit"
+  eval_series_zeta_100:
+    vars: ["r", "l", "c"]
+    values: [100.0, 0.03, 0.0001]
+    equation: "(r / 2) * sqrt(c / l)"
+    tolerance: 0.001
+    expected_value: 2.886751345948129
+    expected_symbol: "zeta_series"
+  eval_series_zeta_5:
+    vars: ["r", "l", "c"]
+    values: [5.0, 0.03, 0.0001]
+    equation: "(r / 2) * sqrt(c / l)"
+    tolerance: 0.001
+    expected_value: 0.14433756729740646
+    expected_symbol: "zeta_series"
+  eval_parallel_zeta_8:
+    vars: ["r", "l", "c"]
+    values: [8.0, 0.03, 0.0001]
+    equation: "sqrt(l / c) / (2 * r)"
+    tolerance: 0.001
+    expected_value: 1.0825317547305484
+    expected_symbol: "zeta_parallel"
+  eval_parallel_zeta_50:
+    vars: ["r", "l", "c"]
+    values: [50.0, 0.03, 0.0001]
+    equation: "sqrt(l / c) / (2 * r)"
+    tolerance: 0.001
+    expected_value: 0.17320508075688776
+    expected_symbol: "zeta_parallel"

@@ -1,0 +1,56 @@
+axioms:
+  phase_peak_voltage:
+    equation: "Vpk = 141"
+  line_frequency:
+    equation: "f = 50"
+  load_current:
+    equation: "Iload = 200"
+  phase_rms_voltage:
+    equation: "Vphase_rms = Vpk / sqrt(2)"
+  line_rms_voltage:
+    equation: "VLL_rms = sqrt(3) * Vphase_rms"
+  dc_average_voltage:
+    equation: "Vdc_avg = 1.35 * VLL_rms"
+  output_power:
+    equation: "Pout = Vdc_avg * Iload"
+  ripple_frequency:
+    equation: "fripple = 6 * f"
+dc_average_from_phase_voltage:
+  equation: |+
+    Vdc_avg = 1.35 * VLL_rms ; VLL_rms = sqrt(3) * Vphase_rms -> Vdc_avg = 1.35 * sqrt(3) * Vphase_rms
+calculations:
+  phase_rms_eval:
+    vars: ["Vpk"]
+    values: [141]
+    equation: "Vpk / sqrt(2)"
+    tolerance: 0.01
+    expected_value: 99.702
+    expected_symbol: "Vphase_rms"
+  line_rms_eval:
+    vars: ["Vphase_rms"]
+    values: [99.702]
+    equation: "sqrt(3) * Vphase_rms"
+    tolerance: 0.01
+    expected_value: 172.7
+    expected_symbol: "VLL_rms"
+  dc_average_eval:
+    vars: ["VLL_rms"]
+    values: [172.7]
+    equation: "1.35 * VLL_rms"
+    tolerance: 0.1
+    expected_value: 233.145
+    expected_symbol: "Vdc_avg"
+  output_power_eval:
+    vars: ["Vdc_avg", "Iload"]
+    values: [233.145, 200]
+    equation: "Vdc_avg * Iload"
+    tolerance: 1
+    expected_value: 46629.0
+    expected_symbol: "Pout"
+  ripple_frequency_eval:
+    vars: ["f"]
+    values: [50]
+    equation: "6 * f"
+    tolerance: 0.000001
+    expected_value: 300.0
+    expected_symbol: "fripple"

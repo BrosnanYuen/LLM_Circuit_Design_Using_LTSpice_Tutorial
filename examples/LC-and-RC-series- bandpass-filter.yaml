@@ -1,0 +1,38 @@
+axioms:
+  resonant_frequency_lc:
+    equation: "f0 = 1 / (2 * pi * sqrt(l1 * c1))"
+  cutoff_frequency_rc:
+    equation: "f_c_rc = 1 / (2 * pi * r1 * c2)"
+  inductive_reactance:
+    equation: "x_l = 2 * pi * f * l"
+  capacitive_reactance:
+    equation: "x_c = 1 / (2 * pi * f * c)"
+calculations:
+  eval_resonant_frequency:
+    vars: ["l1", "c1"]
+    values: [0.0000253, 0.00001]
+    equation: "1 / (2 * pi * sqrt(l1 * c1))"
+    tolerance: 0.001
+    expected_value: 10005.985542771487
+    expected_symbol: "f0"
+  eval_rc_cutoff_frequency:
+    vars: ["r1", "c2"]
+    values: [1000.0, 0.000001591]
+    equation: "1 / (2 * pi * r1 * c2)"
+    tolerance: 0.001
+    expected_value: 100.0345336844094
+    expected_symbol: "f_c_rc"
+  eval_inductive_reactance:
+    vars: ["f", "l"]
+    values: [10000.0, 0.0000253]
+    equation: "2 * pi * f * l"
+    tolerance: 0.001
+    expected_value: 1.5896458827164353
+    expected_symbol: "x_l"
+  eval_capacitive_reactance:
+    vars: ["f", "c"]
+    values: [10000.0, 0.00001]
+    equation: "1 / (2 * pi * f * c)"
+    tolerance: 0.001
+    expected_value: 1.5915494309189535
+    expected_symbol: "x_c"

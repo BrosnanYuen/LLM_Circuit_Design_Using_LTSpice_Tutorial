@@ -1,0 +1,40 @@
+axioms:
+  source_peak_voltage:
+    equation: "Vpk = 325"
+  line_frequency:
+    equation: "f = 50"
+  load_inductance:
+    equation: "L = 0.01"
+  constant_voltage_load:
+    equation: "Vload = 200"
+  source_rms_voltage:
+    equation: "Vs = Vpk / sqrt(2)"
+  inductive_reactance:
+    equation: "XL = 2 * pi * f * L"
+  continuous_conduction_limit:
+    equation: "Vo_max = (2 * sqrt(2) * Vs / pi) / sqrt(1 + 4 / pi^2)"
+limit_voltage_from_source_rms:
+  equation: |+
+    Vo_max = (2 * sqrt(2) * Vs / pi) / sqrt(1 + 4 / pi^2) ; Vs = Vpk / sqrt(2) -> Vo_max = (2 * Vpk / pi) / sqrt(1 + 4 / pi^2)
+calculations:
+  source_rms_eval:
+    vars: ["Vpk"]
+    values: [325]
+    equation: "Vpk / sqrt(2)"
+    tolerance: 0.01
+    expected_value: 229.8
+    expected_symbol: "Vs"
+  inductive_reactance_eval:
+    vars: ["f", "L"]
+    values: [50, 0.01]
+    equation: "2 * pi * f * L"
+    tolerance: 0.000001
+    expected_value: 3.141593
+    expected_symbol: "XL"
+  continuous_conduction_limit_eval:
+    vars: ["Vs"]
+    values: [229.8]
+    equation: "(2 * sqrt(2) * Vs / pi) / sqrt(1 + 4 / pi^2)"
+    tolerance: 0.1
+    expected_value: 174.8
+    expected_symbol: "Vo_max"

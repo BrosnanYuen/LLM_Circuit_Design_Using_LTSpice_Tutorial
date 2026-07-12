@@ -1,0 +1,64 @@
+axioms:
+  bus_voltage:
+    equation: "Vd = 380"
+  switching_frequency:
+    equation: "fs = 16000"
+  load_resistance:
+    equation: "R = 10"
+  load_inductance:
+    equation: "L = 0.1"
+  gate_excursion:
+    equation: "Vgate = 10"
+  switch_threshold:
+    equation: "Vt = 90"
+  control_gain:
+    equation: "G = 100"
+  switching_period:
+    equation: "Ts = 1 / fs"
+  load_current:
+    equation: "I = Vd / R"
+  current_slew_rate:
+    equation: "di_dt = Vd / L"
+  load_time_constant:
+    equation: "tau = L / R"
+  control_voltage:
+    equation: "Vctrl = G * Vgate"
+control_voltage_substitution:
+  equation: |+
+    Vctrl = G * Vgate ; G = 100 -> Vctrl = 100 * Vgate
+calculations:
+  switching_period_eval:
+    vars: ["fs"]
+    values: [16000]
+    equation: "1 / fs"
+    tolerance: 0.000001
+    expected_value: 0.0000625
+    expected_symbol: "Ts"
+  load_current_eval:
+    vars: ["Vd", "R"]
+    values: [380, 10]
+    equation: "Vd / R"
+    tolerance: 0.000001
+    expected_value: 38.0
+    expected_symbol: "I"
+  current_slew_rate_eval:
+    vars: ["Vd", "L"]
+    values: [380, 0.1]
+    equation: "Vd / L"
+    tolerance: 0.001
+    expected_value: 3800.0
+    expected_symbol: "di_dt"
+  load_time_constant_eval:
+    vars: ["L", "R"]
+    values: [0.1, 10]
+    equation: "L / R"
+    tolerance: 0.000001
+    expected_value: 0.01
+    expected_symbol: "tau"
+  control_voltage_eval:
+    vars: ["G", "Vgate"]
+    values: [100, 10]
+    equation: "G * Vgate"
+    tolerance: 0.000001
+    expected_value: 1000.0
+    expected_symbol: "Vctrl"

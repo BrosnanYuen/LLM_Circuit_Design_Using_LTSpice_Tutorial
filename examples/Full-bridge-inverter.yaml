@@ -1,0 +1,62 @@
+axioms:
+  bus_voltage:
+    equation: "Vd = 380"
+  modulation_index:
+    equation: "ma = 0.8"
+  load_resistance:
+    equation: "R = 1"
+  load_inductance:
+    equation: "L = 0.01"
+  carrier_frequency:
+    equation: "fs = 16000"
+  fundamental_frequency:
+    equation: "f = 160"
+  fundamental_voltage:
+    equation: "V1 = ma * Vd"
+  load_impedance:
+    equation: "Z1 = sqrt(R^2 + (2 * pi * f * L)^2)"
+  fundamental_current:
+    equation: "I1 = V1 / Z1"
+  load_time_constant:
+    equation: "tau = L / R"
+  carrier_period:
+    equation: "Ts = 1 / fs"
+fundamental_voltage_substitution:
+  equation: |+
+    V1 = ma * Vd ; ma = 0.8 -> V1 = 0.8 * Vd
+calculations:
+  fundamental_voltage_eval:
+    vars: ["ma", "Vd"]
+    values: [0.8, 380]
+    equation: "ma * Vd"
+    tolerance: 0.000001
+    expected_value: 304.0
+    expected_symbol: "V1"
+  impedance_eval:
+    vars: ["R", "f", "L"]
+    values: [1, 160, 0.01]
+    equation: "sqrt(R^2 + (2 * pi * f * L)^2)"
+    tolerance: 0.01
+    expected_value: 10.099
+    expected_symbol: "Z1"
+  current_eval:
+    vars: ["V1", "Z1"]
+    values: [304, 10.099]
+    equation: "V1 / Z1"
+    tolerance: 0.1
+    expected_value: 30.1
+    expected_symbol: "I1"
+  carrier_period_eval:
+    vars: ["fs"]
+    values: [16000]
+    equation: "1 / fs"
+    tolerance: 0.000001
+    expected_value: 0.0000625
+    expected_symbol: "Ts"
+  load_time_constant_eval:
+    vars: ["L", "R"]
+    values: [0.01, 1]
+    equation: "L / R"
+    tolerance: 0.000001
+    expected_value: 0.01
+    expected_symbol: "tau"

@@ -1,0 +1,86 @@
+axioms:
+  gate_voltage:
+    equation: "Vgate = 5"
+  gate_period:
+    equation: "T = 1"
+  gate_on_time:
+    equation: "ton = 0.5"
+  gate_offset_0:
+    equation: "t0 = 0"
+  gate_offset_120:
+    equation: "t120 = 0.3333"
+  gate_offset_240:
+    equation: "t240 = 0.6666"
+  bus_voltage:
+    equation: "Vbus = 10"
+  load_resistance:
+    equation: "R = 100"
+  load_inductance:
+    equation: "L = 0.001"
+  frequency_from_period:
+    equation: "f = 1 / T"
+  duty_cycle_percent:
+    equation: "duty_percent = 100 * ton / T"
+  phase_angle_0:
+    equation: "theta_0 = 360 * t0 / T"
+  phase_angle_120:
+    equation: "theta_120 = 360 * t120 / T"
+  phase_angle_240:
+    equation: "theta_240 = 360 * t240 / T"
+  load_time_constant:
+    equation: "tau = L / R"
+  current_limit:
+    equation: "Imax = Vbus / R"
+frequency_from_period_substitution:
+  equation: |+
+    f = 1 / T ; T = 1 -> f = 1
+calculations:
+  frequency_eval:
+    vars: ["T"]
+    values: [1]
+    equation: "1 / T"
+    tolerance: 0.000001
+    expected_value: 1.0
+    expected_symbol: "f"
+  duty_cycle_eval:
+    vars: ["ton", "T"]
+    values: [0.5, 1]
+    equation: "100 * ton / T"
+    tolerance: 0.000001
+    expected_value: 50.0
+    expected_symbol: "duty_percent"
+  phase_0_eval:
+    vars: ["t0", "T"]
+    values: [0, 1]
+    equation: "360 * t0 / T"
+    tolerance: 0.000001
+    expected_value: 0.0
+    expected_symbol: "theta_0"
+  phase_120_eval:
+    vars: ["t120", "T"]
+    values: [0.3333, 1]
+    equation: "360 * t120 / T"
+    tolerance: 0.1
+    expected_value: 119.988
+    expected_symbol: "theta_120"
+  phase_240_eval:
+    vars: ["t240", "T"]
+    values: [0.6666, 1]
+    equation: "360 * t240 / T"
+    tolerance: 0.1
+    expected_value: 239.976
+    expected_symbol: "theta_240"
+  load_time_constant_eval:
+    vars: ["L", "R"]
+    values: [0.001, 100]
+    equation: "L / R"
+    tolerance: 0.000001
+    expected_value: 0.00001
+    expected_symbol: "tau"
+  current_limit_eval:
+    vars: ["Vbus", "R"]
+    values: [10, 100]
+    equation: "Vbus / R"
+    tolerance: 0.000001
+    expected_value: 0.1
+    expected_symbol: "Imax"

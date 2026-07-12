@@ -1,0 +1,58 @@
+axioms:
+  source_peak_voltage:
+    equation: "Vpk = 325"
+  line_frequency:
+    equation: "f = 50"
+  load_inductance:
+    equation: "L = 0.0001"
+  load_current:
+    equation: "Iload = 10"
+  source_rms_voltage:
+    equation: "Vrms = Vpk / sqrt(2)"
+  rectified_average_voltage:
+    equation: "Vavg = 2 * Vpk / pi"
+  output_power:
+    equation: "Pout = Vavg * Iload"
+  inductive_reactance:
+    equation: "XL = 2 * pi * f * L"
+  current_slew_rate:
+    equation: "di_dt = Vpk / L"
+power_from_rectified_average:
+  equation: |+
+    Pout = Vavg * Iload ; Vavg = 2 * Vpk / pi -> Pout = (2 * Vpk / pi) * Iload
+calculations:
+  source_rms_eval:
+    vars: ["Vpk"]
+    values: [325]
+    equation: "Vpk / sqrt(2)"
+    tolerance: 0.01
+    expected_value: 229.8
+    expected_symbol: "Vrms"
+  rectified_average_voltage_eval:
+    vars: ["Vpk"]
+    values: [325]
+    equation: "2 * Vpk / pi"
+    tolerance: 0.01
+    expected_value: 206.9
+    expected_symbol: "Vavg"
+  output_power_eval:
+    vars: ["Vavg", "Iload"]
+    values: [206.9, 10]
+    equation: "Vavg * Iload"
+    tolerance: 0.1
+    expected_value: 2069.0
+    expected_symbol: "Pout"
+  inductive_reactance_eval:
+    vars: ["f", "L"]
+    values: [50, 0.0001]
+    equation: "2 * pi * f * L"
+    tolerance: 0.00001
+    expected_value: 0.0314159
+    expected_symbol: "XL"
+  current_slew_rate_eval:
+    vars: ["Vpk", "L"]
+    values: [325, 0.0001]
+    equation: "Vpk / L"
+    tolerance: 1
+    expected_value: 3250000.0
+    expected_symbol: "di_dt"

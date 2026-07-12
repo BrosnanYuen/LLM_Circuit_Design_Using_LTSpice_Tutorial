@@ -1,0 +1,73 @@
+axioms:
+  source_peak_voltage:
+    equation: "Vpk = 4.86"
+  line_frequency:
+    equation: "f = 88"
+  diode_drop:
+    equation: "Vd = 0.7"
+  load_resistance:
+    equation: "R = 250"
+  smoothing_capacitance:
+    equation: "C = 0.0006"
+  source_rms_voltage:
+    equation: "Vrms = Vpk / sqrt(2)"
+  ripple_frequency:
+    equation: "fripple = 2 * f"
+  peak_output_voltage:
+    equation: "Vout_peak = Vpk - 2 * Vd"
+  load_current:
+    equation: "Iload = Vout_peak / R"
+  rc_time_constant:
+    equation: "tau = R * C"
+  ripple_estimate:
+    equation: "dV = Iload / (fripple * C)"
+  rectified_average_voltage:
+    equation: "Vavg = 2 * Vpk / pi"
+  output_power:
+    equation: "Pout = Vavg * Iload"
+power_from_average_voltage:
+  equation: |+
+    Pout = Vavg * Iload ; Vavg = 2 * Vpk / pi -> Pout = (2 * Vpk / pi) * Iload
+calculations:
+  source_rms_eval:
+    vars: ["Vpk"]
+    values: [4.86]
+    equation: "Vpk / sqrt(2)"
+    tolerance: 0.01
+    expected_value: 3.435
+    expected_symbol: "Vrms"
+  ripple_frequency_eval:
+    vars: ["f"]
+    values: [88]
+    equation: "2 * f"
+    tolerance: 0.000001
+    expected_value: 176.0
+    expected_symbol: "fripple"
+  peak_output_voltage_eval:
+    vars: ["Vpk", "Vd"]
+    values: [4.86, 0.7]
+    equation: "Vpk - 2 * Vd"
+    tolerance: 0.000001
+    expected_value: 3.46
+    expected_symbol: "Vout_peak"
+  load_current_eval:
+    vars: ["Vout_peak", "R"]
+    values: [3.46, 250]
+    equation: "Vout_peak / R"
+    tolerance: 0.000001
+    expected_value: 0.01384
+    expected_symbol: "Iload"
+  time_constant_eval:
+    vars: ["R", "C"]
+    values: [250, 0.0006]
+    equation: "R * C"
+    tolerance: 0.000001
+    expected_value: 0.15
+    expected_symbol: "tau"
+  ripple_estimate_eval:
+    vars: ["Iload", "fripple", "C"]
+    values: [0.01384, 176, 0.0006]
+    equation: "Iload / (fripple * C)"
+    tolerance: 0.01
+    expected_value: 0.131
+    expected_symbol: "dV"
