@@ -39,3 +39,7 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 
 3) Write python code to read the .csv files and verify the circuit design works
 
+# Phase 4: Convert the LTSpice .net to .asc
+
+Read ltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
+
