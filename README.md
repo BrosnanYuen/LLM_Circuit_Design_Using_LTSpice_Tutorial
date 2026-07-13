@@ -35,7 +35,7 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 # Phase 2: Calculate values for circuit design
 1) Read ./YAML_tutorial.md and some of the example .yaml files in ./examples/ to create a new ./circuit.yaml containing the calculations for the circuit design
 
-Try simple equations and calculations first. Then try the full complex equations and calculations
+Try simple equations and calculations first.
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
