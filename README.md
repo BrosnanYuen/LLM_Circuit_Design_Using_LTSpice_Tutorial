@@ -37,6 +37,5 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 
 2) Read ./run_ltspice_netlist_to_csv.md to simulate the LTSPice netlist ./circuit.net and get a csv file of simulation to verify the circuit is designed correctly
 
-
-
+3) Write python code to read the .csv files and verify the circuit design works
 
