@@ -31,11 +31,11 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
-# Phase 2: Create the LTSpice netlist file .net
+# Phase 3: Create the LTSpice netlist file .net
 
 1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSPice netlist ./circuit.net using the calculations
 
-2) Read 
+2) Read ./run_ltspice_netlist_to_csv.md to simulate the LTSPice netlist ./circuit.net and get a csv file of simulation to verify the circuit is designed correctly
 
 
 
