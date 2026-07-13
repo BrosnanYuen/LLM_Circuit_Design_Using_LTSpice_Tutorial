@@ -32,10 +32,10 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
 # Phase 3: Create the LTSpice netlist file .net
-1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSPice netlist ./circuit.net using the calculations above
-DO NOT USE ANY COMPONENTS OUTSIDE LTSPICE library of ~/.wine/drive_c/users/brosnan/AppData/Local/LTspice/
+1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSpice netlist ./circuit.net using the calculations above
+DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/users/brosnan/AppData/Local/LTspice/
 
-2) Read ./ltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSPice netlist ./circuit.net and get a csv file of simulation to verify the circuit is designed correctly
+2) Read ./ltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly
 
 3) Write python code to read the .csv files and verify the circuit design works
 
