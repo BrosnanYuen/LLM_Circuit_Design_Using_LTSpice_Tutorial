@@ -49,7 +49,10 @@ ltspice_mcp_execute {"api_name":"RawRead","inputs":{"new_object_name":"raw","raw
 ltspice_mcp_execute {"api_name":"traces_to_csv","inputs":{"object_name":"raw","trace_refs":["V(opamp_input)","V(opamp_output)"],"output_files":"./sim_wave_"}}
 ```
 13. Poll `execute_status`. Expect files like `./sim_wave_0.csv`, `./sim_wave_1.csv`, ...
-14. Verify that the designed circuit is correct
+14. Verify that the designed circuit is correct, ONLY use is_valid_ltspice_netlist_file if something is wrong with netlist file format
+```json
+ltspice_mcp_execute {"api_name":"is_valid_ltspice_netlist_file","inputs":{"is_valid_ltspice_netlist_file":"/path/to/folder/circuit.net"}}
+```
 
 ## Expected runtime caveat
 If LTspice/Wine are not configured, `SimRunner.run` may return:
