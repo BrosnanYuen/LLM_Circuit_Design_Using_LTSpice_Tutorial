@@ -33,7 +33,9 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 
 # Phase 2: Create the LTSpice netlist file .net
 
+1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSPice netlist ./circuit.net using the calculations
 
+2) Read 
 
 
 
