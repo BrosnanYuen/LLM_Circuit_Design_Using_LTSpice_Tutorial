@@ -22,8 +22,11 @@ There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 - Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using ltspice_mcp
 
 If something is wrong delete everything and start from begining
+
 ONLY WRITE TO FILES INSIDE THIS FOLDER
+
 DO NOT WRITE TO ANY FILES OUTSIDE THIS FOLDER
+
 CAN READ FILES OUTSIDE THIS FOLDER
 
 # Phase 1: Search the web
@@ -31,12 +34,14 @@ Search the web for circuit designs that can be created and simulated in LTSpice
 
 # Phase 2: Calculate values for circuit design
 1) Read ./YAML_tutorial.md and some of the example .yaml files in ./examples/ to create a new ./circuit.yaml containing the calculations for the circuit design
+
 Try simple equations and calculations first before more complex ones
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
 # Phase 3: Create the LTSpice netlist file .net
 1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSpice netlist ./circuit.net using the calculations above
+
 DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/users/brosnan/AppData/Local/LTspice/
 
 2) Read ./ltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly
