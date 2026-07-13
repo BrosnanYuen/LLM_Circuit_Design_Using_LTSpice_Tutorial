@@ -24,9 +24,9 @@ ltspice_mcp_runtime_info {}
 ltspice_mcp_execute {"api_name":"SpiceEditor","inputs":{"new_object_name":"opamp_net","netlist_file":"/path/to/folder/circuit.net"}}
 ```
 3. Poll `execute_status`.
-4. Create simulation runner, MUST USE ABSOLUTE PATHS ONLY:
+4. Create simulation runner, MUST USE ABSOLUTE PATHS ONLY, try to use same folder as .net:
 ```json
-ltspice_mcp_execute {"api_name":"SimRunner","inputs":{"new_object_name":"runner","output_folder":"/path/to/output/folder/"}}
+ltspice_mcp_execute {"api_name":"SimRunner","inputs":{"new_object_name":"runner","output_folder":"/path/to/folder/"}}
 ```
 5. Poll `execute_status`.
 6. Start simulation task, MUST USE ABSOLUTE PATHS ONLY:
