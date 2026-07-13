@@ -16,7 +16,7 @@ where the cutoff frequency has half the power of the peak. Use +12V and -12V rai
 
 There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 
-- Phase 1: Search the web for the optimal design
+- Phase 1: Search the web and examples for the optimal design
 - Phase 2: Calculate the values for the components and verify the calculations using symbolic_math_mcp
 - Phase 3: Use the calculations to create a LTSpice netlist file .net and simulate to verify the results using ltspice_mcp
 - Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using ltspice_mcp
@@ -29,13 +29,14 @@ DO NOT WRITE TO ANY FILES OUTSIDE THIS FOLDER
 
 CAN READ FILES OUTSIDE THIS FOLDER
 
-# Phase 1: Search the web
+# Phase 1: Research circuit design
 Search the web for circuit designs that can be created and simulated in LTSpice
+Read some .yaml and .net files in ./examples/
 
 # Phase 2: Calculate values for circuit design
 1) Read ./YAML_tutorial.md and some of the example .yaml files in ./examples/ to create a new ./circuit.yaml containing the calculations for the circuit design
 
-Try simple equations and calculations first.
+Use simple equations and calculations.
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
