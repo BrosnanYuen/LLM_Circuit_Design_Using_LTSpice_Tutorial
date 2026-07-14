@@ -54,3 +54,4 @@ DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/user
 # Phase 4: Convert the LTSpice .net to .asc
 Read ./ltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
 
+ONLY READ ./LTSPICE_ERROR_CODES.md if have errors
