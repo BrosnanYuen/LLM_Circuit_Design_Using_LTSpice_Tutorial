@@ -35,10 +35,12 @@ Read some .yaml and .net files in ./examples/
 
 # Phase 2: Calculate values for circuit design
 1) Read ./YAML_tutorial.md and some of the example .yaml files in ./examples/ to create a new ./circuit.yaml containing the calculations for the circuit design
-Wait for 10 mins for each .yaml.
+
 Use simple equations and calculations.
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
+
+Wait atleast 10 mins for symbolic_math_mcp tool call
 
 # Phase 3: Create the LTSpice netlist file .net
 1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSpice netlist ./circuit.net using the calculations above
