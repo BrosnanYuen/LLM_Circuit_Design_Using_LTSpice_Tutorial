@@ -49,7 +49,9 @@ DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/user
 
 2) Read ./ltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly
 
-3) Write python code to read the .csv files and verify the circuit design works
+3) Write python code to read the .csv files and verify the circuit design works.
+
+MUST HAVE: 30 Hz and 25 KHz cutoff freq
 
 # Phase 4: Convert the LTSpice .net to .asc
 Read ./ltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
