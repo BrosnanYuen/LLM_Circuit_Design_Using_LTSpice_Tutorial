@@ -5,7 +5,7 @@
 # Install
 Install these first and add to your harness
 - https://github.com/BrosnanYuen/symbolic_math_mcp
-- https://github.com/BrosnanYuen/ltspice_mcp
+- https://github.com/BrosnanYuen/bltspice_mcp
 
 # Example Workflow Prompt
 
