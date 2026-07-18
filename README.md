@@ -52,7 +52,7 @@ Wait atleast 10 mins for symbolic_math_mcp tool call to finish
 
 DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/users/brosnan/AppData/Local/LTspice/
 
-2) Read ./bltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly
+2) Read ./bltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly. ONLY READ ./bltspice_tool_call_fails.md if have errors with simulating .net files
 
 3) Write python code to read the .csv files and verify the circuit design works.
 
@@ -61,4 +61,4 @@ MUST HAVE: 30 Hz and 25 KHz cutoff freq
 # Phase 4: Convert the LTSpice .net to .asc
 Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
 
-ONLY READ ./LTSPICE_ERROR_CODES.md if have errors
+ONLY READ ./LTSPICE_ERROR_CODES.md if have errors with conversion
