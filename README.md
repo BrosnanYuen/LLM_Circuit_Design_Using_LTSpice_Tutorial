@@ -52,7 +52,7 @@ Wait atleast 10 mins for symbolic_math_mcp tool call to finish
 
 DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/users/brosnan/AppData/Local/LTspice/
 
-2) Read ./bltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly. ONLY READ ./bltspice_tool_call_fails.md if have errors with simulating .net files
+2) Read ./bltspice_mcp_for_LLM.md and ./run_ltspice_netlist_to_csv.md to simulate the LTSpice netlist ./circuit.net and get a .csv file of simulation to verify the circuit is designed correctly. ONLY READ ./bltspice_tool_call_fails.md if have errors with tool calls in mcp server
 
 3) Write python code to read the .csv files and verify the circuit design works.
 
