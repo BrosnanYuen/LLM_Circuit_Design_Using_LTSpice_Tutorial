@@ -45,7 +45,7 @@ Use simple equations and calculations.
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
-Wait atleast 10 mins for symbolic_math_mcp tool call to finish
+Wait symbolic_math_mcp tool call to finish
 
 # Phase 3: Create the LTSpice netlist file .net
 1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSpice netlist ./circuit.net using the calculations above
@@ -98,7 +98,7 @@ Use simple equations and calculations.
 
 2) Read ./symbolic_math_mcp_for_LLM.md on how to use the symbolic_math_mcp server to verify the newly created ./circuit.yaml
 
-Wait atleast 10 mins for symbolic_math_mcp tool call to finish
+Wait symbolic_math_mcp tool call to finish
 
 # Phase 3: Create the LTSpice netlist file .net
 1) Read ./LTSPICE_NET.md and some of the example .net files in ./examples/ to create a new LTSpice netlist ./circuit.net using the calculations above
