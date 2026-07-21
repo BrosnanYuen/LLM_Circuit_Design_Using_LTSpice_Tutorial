@@ -1,6 +1,8 @@
 
 # Tutorial for Circuit Design In LTSpice using LLMs
 
+![Generate LTSpice Circuits using LLMs](./qwen.gif)
+
 ![Generate LTSpice Circuits using LLMs](./head.png)
 
 ![Converts ltspice netlist .net to ltspice .asc file format!](./net2asc.png)
