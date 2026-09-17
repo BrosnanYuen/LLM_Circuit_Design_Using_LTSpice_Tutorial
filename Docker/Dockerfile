@@ -80,7 +80,7 @@ RUN git clone --depth 1 --branch "$BLTSPICE_MCP_REF" "$BLTSPICE_MCP_REPO" "$BLTS
       "numpy>=2.5.3" \
       "Pillow>=12.3.0" \
       "kicad-tools>=0.20.0" \
- && "$BLTSPICE_MCP_DIR/.venv/bin/pip" install --no-deps "electronics-design>=0.2.1" \
+ && "$BLTSPICE_MCP_DIR/.venv/bin/pip" install --no-deps "electronics-design>=0.2.3" \
  && "$BLTSPICE_MCP_DIR/.venv/bin/pip" install --no-deps -e "$BLTSPICE_MCP_DIR"
 
 RUN apt-get update \
