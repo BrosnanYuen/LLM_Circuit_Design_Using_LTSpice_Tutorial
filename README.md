@@ -32,8 +32,8 @@ There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 
 - Phase 1: Search the web and examples for the optimal design
 - Phase 2: Calculate the values for the components and verify the calculations using symbolic_math_mcp
-- Phase 3: Use the calculations to create a LTSpice netlist file .net and simulate to verify the results using ltspice_mcp
-- Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using ltspice_mcp
+- Phase 3: Use the calculations to create a LTSpice netlist file .net and simulate to verify the results using bltspice_mcp
+- Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using bltspice_mcp
 
 If something is wrong delete everything and start from begining
 
@@ -67,8 +67,10 @@ DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/user
 
 MUST HAVE: 30 Hz and 25 KHz cutoff freq
 
-# Phase 4: Convert the LTSpice .net to .asc
-Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
+# Phase 4: Convert the LTSpice .net to .asc and also .net to .kicad_sch
+Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
+
+Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_kicad_sch from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
 
 ONLY READ ./LTSPICE_ERROR_CODES.md if have errors with conversion
 
@@ -87,8 +89,8 @@ There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 
 - Phase 1: Search the web and examples for the optimal design
 - Phase 2: Calculate the values for the components and verify the calculations using symbolic_math_mcp
-- Phase 3: Use the calculations to create a LTSpice netlist file .net and simulate to verify the results using ltspice_mcp
-- Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using ltspice_mcp
+- Phase 3: Use the calculations to create a LTSpice netlist file .net and simulate to verify the results using bltspice_mcp
+- Phase 4: Finally, convert LTSpice netlist file .net to LTSpice asc file .asc using bltspice_mcp
 
 If something is wrong delete everything and start from begining
 
@@ -123,6 +125,8 @@ DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/user
 MUST HAVE: Correct input and output power rails
 
 # Phase 4: Convert the LTSpice .net to .asc
-Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from ltspice_mcp to convert LTSpice .net files to LTSpice .asc files
+Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
+
+Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_kicad_sch from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
 
 ONLY READ ./LTSPICE_ERROR_CODES.md if have errors with conversion
