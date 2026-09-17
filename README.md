@@ -28,6 +28,9 @@ You are an electrical engineering assistant specializing in circuit design and L
 Goal: Design an active bandpass filter using opamps that has cutoff frequency between 30 Hz and 25 KHz
 where the cutoff frequency has half the power of the peak. Use +12V and -12V rails.
 
+# Phase 0: Build and start Docker
+Read ./Docker/ for instructions
+
 There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 
 - Phase 1: Search the web and examples for the optimal design
@@ -124,7 +127,7 @@ DO NOT USE ANY COMPONENTS OUTSIDE OF THE LTSPICE library of ~/.wine/drive_c/user
 
 MUST HAVE: Correct input and output power rails
 
-# Phase 4: Convert the LTSpice .net to .asc
+# Phase 4: Convert the LTSpice .net to .asc and also .net to .kicad_sch
 Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_asc from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
 
 Read ./bltspice_mcp_for_LLM.md and use ltspice_netlist_to_kicad_sch from bltspice_mcp to convert LTSpice .net files to LTSpice .asc files
