@@ -10,9 +10,16 @@
 ![REALTIME LTSpice simulation and export to .csv!](./loop.png)
 
 # Install
-Install these first and add to your harness
-- https://github.com/BrosnanYuen/symbolic_math_mcp
-- https://github.com/BrosnanYuen/bltspice_mcp
+
+```bash
+cd ./Docker
+docker build -t edasyth .
+
+docker run -d --name edasyth --restart unless-stopped \
+  -p 8753:8753 -p 7543:7543 \
+  -v /path/to/workspace:/path/to/workspace \
+  edasyth
+```
 
 # Example Workflow Prompt for Active Bandpass Filter
 
