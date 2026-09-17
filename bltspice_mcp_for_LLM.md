@@ -5,7 +5,7 @@
 |---|---|---|
 | `runtime_info` | `{}` | Return runtime diagnostics for LTspice/Wine/OS and simulator readiness immediately. |
 | `execute_status` | `{}` | Poll latest status for the session queue. |
-| `stop_reset` | `{}` | Cancel/reset queue and object registry for current session. |
+| `stop_reset` | `{}` | SIGKILL only the current session's worker/process tree, clear its existing queue, and discard its object registry. |
 | `execute` | `{"api_name": "...", "inputs": {...}}` | Queue one PyLTSpice API operation. |
 
 ## Async Behavior
@@ -69,6 +69,8 @@ Error statuses:
 | `WorstCaseAnalysis` | `circuit_file`, `runner` | Worst-case analysis toolkit. |
 | `is_valid_ltspice_netlist_file` | `filepath` | Validate an LTspice netlist file. |
 | `ltspice_netlist_to_asc` | `netlist_filepath`, `asc_filepath_out` | Convert an LTspice netlist to an ASC schematic using configured `convert_settings`. |
+| `kicad_sch_to_ltspice_netlist` | `kicad_sch_filepath`, `ltspice_netlist_filepath_out` | Convert a KiCad schematic to a validated LTspice netlist using configured `convert_settings`. |
+| `ltspice_netlist_to_kicad_sch` | `ltspice_netlist_filepath`, `kicad_sch_filepath_out` | Convert a validated LTspice netlist to a KiCad schematic using configured `convert_settings`. |
 | `sweep` | `stop` OR `start,stop,step` | Linear sweep iterator. |
 | `sweep_n` | `start,stop,n` | Linear sweep fixed points. |
 | `sweep_log` | `start,stop,step_factor/base` | Logarithmic sweep iterator. |
@@ -79,10 +81,28 @@ Error statuses:
 
 MCP argument names follow the PyLTSpice constructor signatures exactly. Use `asc_filename` for `AscEditor` and `editor` for `SimStepper`; legacy aliases are not supported.
 
-For `ltspice_netlist_to_asc`, `convert_settings` is optional in `inputs`. When
+For `ltspice_netlist_to_asc`, `kicad_sch_to_ltspice_netlist`, and
+`ltspice_netlist_to_kicad_sch`, `convert_settings` is optional in `inputs`. When
 it is omitted, the server uses the optional `convert_settings` section from
 `config.json`, including defaults for every setting. Values supplied in a
 request override the configured values for that request.
+`voltage_must_have_dc` defaults to `true`, must be a JSON boolean, and is
+forwarded to `ltspice_netlist_to_asc` inside `convert_settings`.
+
+KiCad conversions require `kicad_path` to be a directory containing KiCad symbol
+libraries; the default is `/usr/share/kicad/`. Override it per request with
+`inputs.convert_settings.kicad_path` when KiCad is installed elsewhere. Other
+`electronics-design` KiCad generation settings use package defaults.
+
+Conversion responses put the electronics-design result tuple in
+`output.result`: `[true, "OK", 0]` on success or `[false, "<error code>", <line>]`
+on failure. For example:
+```json
+{"tool":"execute","arguments":{"api_name":"kicad_sch_to_ltspice_netlist","inputs":{"kicad_sch_filepath":"/abs/path/input.kicad_sch","ltspice_netlist_filepath_out":"/abs/path/output.net"}}}
+```
+```json
+{"tool":"execute","arguments":{"api_name":"ltspice_netlist_to_kicad_sch","inputs":{"ltspice_netlist_filepath":"/abs/path/input.net","kicad_sch_filepath_out":"/abs/path/output.kicad_sch"}}}
+```
 
 ## Method Calls via `execute`
 Server supports direct object method invocation when `inputs.object_name` is present.
