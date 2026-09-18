@@ -28,9 +28,6 @@ You are an electrical engineering assistant specializing in circuit design and L
 Goal: Design an active bandpass filter using opamps that has cutoff frequency between 30 Hz and 25 KHz
 where the cutoff frequency has half the power of the peak. Use +12V and -12V rails.
 
-# Phase 0: Build and start Docker
-Read ./Docker/ for instructions
-
 There are four phases for the the design, ONLY FOLLOW IN THIS ORDER:
 
 - Phase 1: Search the web and examples for the optimal design
@@ -45,6 +42,9 @@ ONLY WRITE TO FILES INSIDE THIS FOLDER
 DO NOT WRITE TO ANY FILES OUTSIDE THIS FOLDER
 
 CAN READ FILES OUTSIDE THIS FOLDER
+
+# Phase 0: Build and start Docker
+Read ./Docker/ for instructions
 
 # Phase 1: Research circuit design
 Search the web for circuit designs that can be created and simulated in LTSpice
@@ -102,6 +102,9 @@ ONLY WRITE TO FILES INSIDE THIS FOLDER
 DO NOT WRITE TO ANY FILES OUTSIDE THIS FOLDER
 
 CAN READ FILES OUTSIDE THIS FOLDER
+
+# Phase 0: Build and start Docker
+Read ./Docker/ for instructions
 
 # Phase 1: Research circuit design
 Search the web for circuit designs that can be created and simulated in LTSpice
